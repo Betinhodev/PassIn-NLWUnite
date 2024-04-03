@@ -71,9 +71,9 @@ namespace PassIn.Application.UseCases.Events.RegisterAttendee
 
             var attendeesForEvent = _dbContext.Attendees.Count(attendee => attendee.Event_Id == eventId);
         
-            if(attendeesForEvent > existEvent.Maximum_Attendees)
+            if(attendeesForEvent == existEvent.Maximum_Attendees)
             {
-                throw new ErrorOnValidationException("There is no room for this event.")
+                throw new ErrorOnValidationException("There is no room for this event.");
             }
         }
 
